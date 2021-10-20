@@ -2,17 +2,29 @@
   "name": "easyboard-assistant",
   "version": "1.0.0",
   "main": "index.js",
+  "bin": "index.js",
   "author": "Florian LEROUX",
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cross-fetch": "^3.1.4",
     "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
-    "nedb-promises": "^5.0.1",
-    "node-fetch": "^3.0.0"
+    "nedb-promises": "^5.0.1"
   },
-  "type": "module",
   "scripts": {
-    "dev": "node --no-warnings index.js"
+    "dev": "node index.js --dev",
+    "start": "node --no-warnings index.js --merge"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "src/**/*"
+    ],
+    "outputPath": "dist",
+    "targets": [
+      "latest-macos-arm64",
+      "latest-win-x64"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 import { datastore } from "./db.js";
+import { kanboard } from "./kanboard.js";
 
 const getContent = async () => {
   const docs = await datastore.find({});
@@ -14,11 +15,10 @@ const getContent = async () => {
 const deleteContent = async () => {
   const docs = await datastore.find({});
   docs.forEach((doc) => {
-    if (doc.identifier.startsWith("7B0")) datastore.remove(doc);
+    if (doc.id.startsWith("1577")) datastore.remove(doc);
   });
 };
 
 // deleteContent();
-console.log(process.argv);
-
 // getContent();
+
